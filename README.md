@@ -1,50 +1,91 @@
-# React + TypeScript + Vite
+# React Vite Project
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a React Vite project that can be run locally or inside a Docker container. Below are the instructions for setting up the project.
 
-Currently, two official plugins are available:
+## Table of Contents
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- [Prerequisites](#prerequisites)
+- [Running the Project Locally](#running-the-project-locally)
+- [Running the Project with Docker](#running-the-project-with-docker)
+- [Project Structure](#project-structure)
+- [Scripts](#scripts)
 
-## Expanding the ESLint configuration
+## Prerequisites
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+Before you start, ensure you have the following installed:
 
-- Configure the top-level `parserOptions` property like this:
+- **Node.js**: [Download Node.js](https://nodejs.org/) (version 18.x or higher recommended)
+- **npm**: Installed with Node.js
+- **Docker**: [Download Docker](https://www.docker.com/get-started) (if you want to run the project in Docker)
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+---
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+## Running the Project Locally
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+To run the project locally, follow these steps:
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+1. **Clone the Repository**:
+
+   ```bash
+   git clone https://github.com/yourusername/your-repo.git
+   cd your-repo
+   ```
+
+2. **Install Dependencies**:
+
+   ```bash
+   npm
+   ```
+
+3. **Run the Development Server**:
+
+   ```bash
+   npm run dev
+   ```
+
+4. **Install Dependencies**:
+
+   ```bash
+   npm
+   ```
+
+5. **Open your browser and go to**:
+   ```bash
+   http://localhost:5173
+   ```
+
+## Running the Project with Docker
+
+To run the project using Docker, follow these steps:
+
+1. **Build the Docker Image**:
+
+   ```bash
+   docker build -t react-vite-app .
+   ```
+
+2. **Run the Docker Container**:
+
+   ```bash
+   docker run -p 3000:80 react-vite-app
+   ```
+
+3. **Open your browser and go to**
+   ```bash
+   `http://localhost:3000`
+   ```
+
+## Scripts
+
+Here are the available npm scripts:
+
+- `npm run dev`: Start the development server.
+- `npm run build`: Build the app for production.
+- `npm run preview`: Preview the production build locally.
+- `npm run lint`: Run the linter on your code.
+
+### Explanation:
+
+1. **Running Locally**: Includes instructions for cloning, installing dependencies, and starting the development server with `npm run dev`.
+2. **Running with Docker**: Steps to build the Docker image and run the container, exposing the app on port `3000`.
+3. **Scripts**: Explains the common npm scripts to run, build, and preview the project.
