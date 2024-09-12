@@ -7,7 +7,6 @@ This is a React Vite project that can be run locally or inside a Docker containe
 - [Prerequisites](#prerequisites)
 - [Running the Project Locally](#running-the-project-locally)
 - [Running the Project with Docker](#running-the-project-with-docker)
-- [Project Structure](#project-structure)
 - [Scripts](#scripts)
 
 ## Prerequisites
@@ -27,8 +26,8 @@ To run the project locally, follow these steps:
 1. **Clone the Repository**:
 
    ```bash
-   git clone https://github.com/yourusername/your-repo.git
-   cd your-repo
+   git clone https://github.com/Ostashevskyi/Synergy-Way.git
+   cd Synergy-Way
    ```
 
 2. **Install Dependencies**:
@@ -72,7 +71,7 @@ To run the project using Docker, follow these steps:
 
 3. **Open your browser and go to**
    ```bash
-   `http://localhost:3000`
+   http://localhost:3000
    ```
 
 ## Scripts
