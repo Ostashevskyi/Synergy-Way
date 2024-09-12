@@ -33,7 +33,7 @@ To run the project locally, follow these steps:
 2. **Install Dependencies**:
 
    ```bash
-   npm
+   npm install
    ```
 
 3. **Run the Development Server**:
@@ -42,13 +42,7 @@ To run the project locally, follow these steps:
    npm run dev
    ```
 
-4. **Install Dependencies**:
-
-   ```bash
-   npm
-   ```
-
-5. **Open your browser and go to**:
+4. **Open your browser and go to**:
    ```bash
    http://localhost:5173
    ```
