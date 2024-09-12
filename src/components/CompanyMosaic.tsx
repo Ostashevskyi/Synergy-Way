@@ -63,7 +63,7 @@ const CompanyMosaic: React.FC<CompanyMosaicProps> = ({ data }) => {
           title="Company info"
           createNode={(newId: string) => createNodeFn(newId)}
           toolbarControls={
-            <div className="flex-1 items-center justify-between">
+            <div className="flex flex-1 items-center justify-between">
               <Select
                 className="max-w-40 text-xs px-2 py-1 font-bold shadow-sm h-[90%]"
                 value={selectedCompanyId}
