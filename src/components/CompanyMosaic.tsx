@@ -6,8 +6,6 @@ import {
   MosaicNode,
   MosaicWindow,
   TileRenderer,
-  getLeaves,
-  createBalancedTreeFromLeaves,
 } from "react-mosaic-component";
 
 import NavBar from "./NavBar";
@@ -16,8 +14,6 @@ import CompanyTile from "./CompanyTile";
 import ControllsButtons from "./ControllsButtons";
 
 import { Company } from "../types/Company";
-
-import { getUnusedCompanies } from "./utils/getUnusedCompanies";
 
 type CompanyMosaicProps = {
   data: Company[];
@@ -36,32 +32,9 @@ const CompanyMosaic: React.FC<CompanyMosaicProps> = ({ data }) => {
     second: data[1]?.id ?? "",
   }));
 
-  const autoArrange = useCallback(() => {
-    const leaves = getLeaves(mosaicValue);
-    const balancedTree = createBalancedTreeFromLeaves(leaves);
-
-    if (balancedTree !== null) {
-      setMosaicValue(balancedTree);
-    }
-  }, [mosaicValue]);
-
   const handleMosaicChange = (newNode: MosaicNode<string> | null) => {
     setMosaicValue(newNode ?? { direction: "row", first: "", second: "" });
   };
-
-  const addNewTile = useCallback(() => {
-    const unusedCompanies = getUnusedCompanies(data, mosaicValue);
-    if (unusedCompanies.length === 0) {
-      console.warn("No unused companies available");
-      return;
-    }
-    const newCompany = unusedCompanies[0];
-    setMosaicValue((currentValue) => ({
-      direction: "row",
-      first: currentValue,
-      second: newCompany.id!,
-    }));
-  }, [data, mosaicValue]);
 
   const handleChangeCompany = useCallback(
     (e: React.ChangeEvent<HTMLSelectElement>, id: string) => {
@@ -137,7 +110,11 @@ const CompanyMosaic: React.FC<CompanyMosaicProps> = ({ data }) => {
 
   return (
     <div className="h-screen">
-      <NavBar autoArrange={autoArrange} addNewTile={addNewTile} />
+      <NavBar
+        setMosaicValue={setMosaicValue}
+        mosaicValue={mosaicValue}
+        data={data}
+      />
       <Mosaic<string>
         value={mosaicValue}
         renderTile={renderTile}

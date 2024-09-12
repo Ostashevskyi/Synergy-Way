@@ -1,12 +1,48 @@
-import IconButton from "./IconButton";
+import { useCallback } from "react";
+
+import {
+  createBalancedTreeFromLeaves,
+  getLeaves,
+  MosaicNode,
+} from "react-mosaic-component";
+
 import Select from "./Select";
+import IconButton from "./IconButton";
+
+import { Company } from "../types/Company";
+
+import { getUnusedCompanies } from "./utils/getUnusedCompanies";
 
 type NavBarProps = {
-  autoArrange: () => void;
-  addNewTile: () => void;
+  mosaicValue: MosaicNode<string>;
+  setMosaicValue: React.Dispatch<React.SetStateAction<MosaicNode<string>>>;
+  data: Company[];
 };
 
-const NavBar = ({ autoArrange, addNewTile }: NavBarProps) => {
+const NavBar = ({ mosaicValue, setMosaicValue, data }: NavBarProps) => {
+  const autoArrange = useCallback(() => {
+    const leaves = getLeaves(mosaicValue);
+    const balancedTree = createBalancedTreeFromLeaves(leaves);
+
+    if (balancedTree !== null) {
+      setMosaicValue(balancedTree);
+    }
+  }, [mosaicValue]);
+
+  const addNewTile = useCallback(() => {
+    const unusedCompanies = getUnusedCompanies(data, mosaicValue);
+    if (unusedCompanies.length === 0) {
+      console.warn("No unused companies available");
+      return;
+    }
+    const newCompany = unusedCompanies[0];
+    setMosaicValue((currentValue) => ({
+      direction: "row",
+      first: currentValue,
+      second: newCompany.id!,
+    }));
+  }, [data, mosaicValue]);
+
   return (
     <div className="bg-slate-600 flex items-center justify-between p-4">
       <div className="">
