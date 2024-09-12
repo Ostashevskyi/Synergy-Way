@@ -11,7 +11,7 @@ const ControlsButton = ({
   return (
     <button
       {...props}
-      className={`${className} w-[30px] h-[30px] flex items-center justify-center hover:bg-slate-100`}
+      className={`${className} w-[30px] h-[30px] flex items-center justify-center hover:bg-hover_button`}
     >
       {children}
     </button>

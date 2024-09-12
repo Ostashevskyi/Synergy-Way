@@ -44,13 +44,13 @@ const NavBar = ({ mosaicValue, setMosaicValue, data }: NavBarProps) => {
   }, [data, mosaicValue]);
 
   return (
-    <div className="bg-slate-600 flex items-center justify-between p-4 flex-col gap-4 lg:flex-row ">
+    <div className="bg-bg_navbar flex items-center justify-between p-4 flex-col gap-4 lg:flex-row ">
       <div className="flex  items-center gap-10">
         <a
-          className="text-white"
+          className="text-text_main"
           href="https://github.com/nomcopter/react-mosaic"
         >
-          react-mosaic <span className="text-dark_grey">v6.1.0</span>
+          react-mosaic <span className="text-text_secondary">v6.1.0</span>
         </a>
         <a
           className="block lg:hidden"
@@ -58,22 +58,33 @@ const NavBar = ({ mosaicValue, setMosaicValue, data }: NavBarProps) => {
         >
           <img
             src={"/github-mark.svg"}
-            className="w-10 h-10 "
+            className="w-10 h-10"
             alt="github logo"
           />
         </a>
       </div>
       <div className="flex lg:gap-4 gap-3 items-center flex-col md:flex-row">
         <div className="flex gap-4 items-center">
-          <label className="text-white">Theme:</label>
-          <Select className="text-dark_grey p-2 w-[140px] border-2 focus:bg-slate-800 border-gray-500">
-            <option>Blueprint</option>
-            <option>Blueprint Dark</option>
-            <option>None</option>
+          <label className="text-text_main">Theme:</label>
+          <Select
+            className="text-text_secondary p-2 w-[140px] border-2 focus:bg-focus_select border-gray-500"
+            onChange={(e: React.ChangeEvent<HTMLSelectElement>) => {
+              if (e.target.value === "light") {
+                document.documentElement.classList.remove("dark");
+              } else {
+                document.documentElement.classList.remove("light");
+              }
+              document.documentElement.classList.add(e.target.value);
+            }}
+          >
+            <option value={"light"}>Light</option>
+            <option value={"dark"}>Dark</option>
           </Select>
         </div>
         <div className="border border-gray-500 h-5 hidden md:block" />
-        <span className="text-white max-lg:text-nowrap">Example Actions:</span>
+        <span className="text-text_main max-lg:text-nowrap">
+          Example Actions:
+        </span>
         <div className="flex items-center gap-2 border border-gray-500 even:border-l">
           <IconButton icon="/grid.svg" onClick={autoArrange}>
             Auto Arrange

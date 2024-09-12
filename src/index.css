@@ -2,6 +2,24 @@
 @tailwind components;
 @tailwind utilities;
 
+.light {
+  --text_secondary: 171, 179, 190;
+  --text_main: 255, 255, 255;
+  --bg_navbar: 71 85 105;
+  --border: 107 114 128;
+  --focus_select: 30 41 59;
+  --hover_button: 241 245 249;
+}
+
+.dark {
+  --text_secondary: 210, 215, 223;
+  --text_main: 255, 255, 255;
+  --bg_navbar: 50, 60, 80;
+  --border: 75, 85, 99;
+  --focus_select: 107, 114, 128;
+  --hover_button: 107, 114, 128;
+}
+
 html,
 body,
 #app {

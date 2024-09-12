@@ -4,7 +4,12 @@ export default {
   theme: {
     extend: {
       colors: {
-        dark_grey: "#abb3be",
+        text_secondary: "rgba(var(--text_secondary))",
+        text_main: "rgba(var(--text_main))",
+        bg_navbar: "rgba(var(--bg_navbar))",
+        border: "rgba(var(--border))",
+        focus_select: "rgba(var(--focus_select))",
+        hover_button: "rgba(var(--hover_button))",
       },
     },
   },
