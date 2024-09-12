@@ -16,6 +16,7 @@ body,
 
 .mosaic-window-toolbar {
   justify-content: flex-start !important;
+  align-items: center !important;
   gap: 8px;
 }
 
@@ -28,4 +29,5 @@ body,
 
 .mosaic-window-controls {
   flex: 1;
+  align-items: center;
 }

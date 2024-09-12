@@ -44,26 +44,36 @@ const NavBar = ({ mosaicValue, setMosaicValue, data }: NavBarProps) => {
   }, [data, mosaicValue]);
 
   return (
-    <div className="bg-slate-600 flex items-center justify-between p-4">
-      <div className="">
-        <div className="">
-          <a
-            className="text-white"
-            href="https://github.com/nomcopter/react-mosaic"
-          >
-            react-mosaic <span className="text-dark_grey">v6.1.0</span>
-          </a>
-        </div>
+    <div className="bg-slate-600 flex items-center justify-between p-4 flex-col gap-4 lg:flex-row ">
+      <div className="flex  items-center gap-10">
+        <a
+          className="text-white"
+          href="https://github.com/nomcopter/react-mosaic"
+        >
+          react-mosaic <span className="text-dark_grey">v6.1.0</span>
+        </a>
+        <a
+          className="block lg:hidden"
+          href="https://github.com/nomcopter/react-mosaic"
+        >
+          <img
+            src={"/github-mark.svg"}
+            className="w-10 h-10 "
+            alt="github logo"
+          />
+        </a>
       </div>
-      <div className={"flex gap-4 items-center"}>
-        <label className="text-white">Theme:</label>
-        <Select className="text-dark_grey p-2 w-[140px] border-2 focus:bg-slate-800 border-gray-500">
-          <option>Blueprint</option>
-          <option>Blueprint Dark</option>
-          <option>None</option>
-        </Select>
-        <div className="border border-gray-500 h-5" />
-        <span className="text-white">Example Actions:</span>
+      <div className="flex lg:gap-4 gap-3 items-center flex-col md:flex-row">
+        <div className="flex gap-4 items-center">
+          <label className="text-white">Theme:</label>
+          <Select className="text-dark_grey p-2 w-[140px] border-2 focus:bg-slate-800 border-gray-500">
+            <option>Blueprint</option>
+            <option>Blueprint Dark</option>
+            <option>None</option>
+          </Select>
+        </div>
+        <div className="border border-gray-500 h-5 hidden md:block" />
+        <span className="text-white max-lg:text-nowrap">Example Actions:</span>
         <div className="flex items-center gap-2 border border-gray-500 even:border-l">
           <IconButton icon="/grid.svg" onClick={autoArrange}>
             Auto Arrange
@@ -73,7 +83,7 @@ const NavBar = ({ mosaicValue, setMosaicValue, data }: NavBarProps) => {
           </IconButton>
         </div>
         <a
-          className="github-link"
+          className="lg:block hidden"
           href="https://github.com/nomcopter/react-mosaic"
         >
           <img

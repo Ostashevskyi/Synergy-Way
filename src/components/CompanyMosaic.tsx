@@ -8,7 +8,7 @@ import {
   TileRenderer,
 } from "react-mosaic-component";
 
-import NavBar from "./NavBar";
+import NavBar from "./Navbar";
 import Select from "./Select";
 import CompanyTile from "./CompanyTile";
 import ControllsButtons from "./ControllsButtons";
@@ -58,15 +58,14 @@ const CompanyMosaic: React.FC<CompanyMosaicProps> = ({ data }) => {
 
       return (
         <MosaicWindow<string>
-          key={id}
           draggable={true}
           path={path}
           title="Company info"
           createNode={(newId: string) => createNodeFn(newId)}
           toolbarControls={
-            <div className="flex flex-1 items-center justify-between">
+            <div className="flex-1 items-center justify-between">
               <Select
-                className="max-w-40 text-xs px-2 py-1 font-bold shadow-sm"
+                className="max-w-40 text-xs px-2 py-1 font-bold shadow-sm h-[90%]"
                 value={selectedCompanyId}
                 onChange={(e: React.ChangeEvent<HTMLSelectElement>) =>
                   handleChangeCompany(e, id)
