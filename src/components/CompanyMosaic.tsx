@@ -8,7 +8,7 @@ import {
   TileRenderer,
 } from "react-mosaic-component";
 
-import NavBar from "./Navbar";
+import NavBar from "./NavBar";
 import Select from "./Select";
 import CompanyTile from "./CompanyTile";
 import ControllsButtons from "./ControllsButtons";
